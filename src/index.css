@@ -1,0 +1,140 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-hand: 'Caveat', cursive;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+  }
+}
+
+/* Subtle paper noise background texture */
+.paper-grain {
+  background-image: radial-gradient(rgba(20, 20, 19, 0.055) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+.dark .paper-grain {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* 3D Perspective helpers */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+/* Custom Organic Object & SVG Keyframe Animations */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-7px) rotate(2deg);
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(6px) rotate(-2.5deg);
+  }
+}
+
+@keyframes stylusDraw {
+  0%, 100% {
+    transform: translate(0px, 0px) rotate(-38deg);
+  }
+  50% {
+    transform: translate(7px, -5px) rotate(-28deg);
+  }
+}
+
+@keyframes dashFlow {
+  to {
+    stroke-dashoffset: -48;
+  }
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinReverseSlow {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes stickerPendulum {
+  0%, 100% {
+    transform: translateY(0px) rotate(-1.2deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(1.4deg);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 4.2s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 4.8s ease-in-out infinite;
+}
+
+.animate-stylus-draw {
+  animation: stylusDraw 3.2s ease-in-out infinite;
+  transform-origin: 68px 52px;
+}
+
+.animate-dash-flow {
+  animation: dashFlow 2.6s linear infinite;
+}
+
+.animate-spin-slow {
+  animation: spinSlow 14s linear infinite;
+  transform-origin: center;
+}
+
+.animate-spin-reverse-slow {
+  animation: spinReverseSlow 11s linear infinite;
+  transform-origin: center;
+}
+
+.animate-sticker-idle {
+  animation: stickerPendulum 5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-slow,
+  .animate-float-reverse,
+  .animate-stylus-draw,
+  .animate-dash-flow,
+  .animate-spin-slow,
+  .animate-spin-reverse-slow,
+  .animate-sticker-idle {
+    animation: none !important;
+  }
+}
