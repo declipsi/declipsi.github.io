@@ -1,0 +1,6 @@
+{
+  "name": "Диана Палий — Анатомия Креативного Моушн-Дизайнера",
+  "description": "Интерактивное портфолио и резюме в формате scrollytelling Дианы Палий — специалиста по визуальной рекламе, 2D/3D моушн-дизайнера, AI-креатора и TikTok-инфлюенсера.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
